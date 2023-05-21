@@ -1,15 +1,13 @@
 # Python
 
-its a class Drone that have this fields
+its a classes implement from AbstractDrone that have next fields
 
-* currentSpeed -- the current speed of the drone.
-* currentAltitude -- the current altitude of the drone.
-* batteryCapacity -- drone battery capacity.
-* currentBatteryLevel -- the current battery level of the drone.
+* current_speed -- the current speed of the drone.
+* current_altitude -- the current altitude of the drone.
+* battery_capacity -- drone battery capacity./fuel_capacity -- drone fuel capacity.
+* current_battery_level -- the current battery level of the drone./current_fuel_level -- the current fuel level of the drone.
 
-The Drone class have this public methods
+The AbstractDrone class have next methods
 
 * fly_at method that puts the drone in flight at the given speed and altitude 
-* charge_battery method that adds the specified amount of charge to the drone's battery
-* use_battery method that uses the specified amount of charge from the drone's battery during flight.
-* get_instance method that create empty object.
+* calculate_current_max_flying_distance method that give max flying distance
