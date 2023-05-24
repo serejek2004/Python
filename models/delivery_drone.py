@@ -1,3 +1,6 @@
+"""
+    packages models
+"""
 from models.drone import AbstractDrone
 
 
@@ -6,11 +9,9 @@ class DeliveryDrone(AbstractDrone):
         Represents a drone with speed, altitude, battery capacity, and battery level attributes.
     """
 
-    def __init__(self, current_speed,
-                 current_altitude,
-                 battery_capacity,
-                 current_battery_level,
-                 consumption_battery, ):
+    # pylint: disable= too-many-arguments
+    def __init__(self, current_speed, current_altitude, battery_capacity,
+                 current_battery_level, consumption_battery):
         """
             Initializes a new instance of the Drone class.
         """
@@ -36,6 +37,7 @@ class DeliveryDrone(AbstractDrone):
         """
             Calculate max flying distance with current speed
         """
+        # pylint: disable= line-too-long
         self.current_max_flying_distance = (self.current_battery_level / self.consumption_battery) * 100
 
     def __str__(self):

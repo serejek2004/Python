@@ -1,16 +1,17 @@
+"""
+    packages models
+"""
 from models.drone import AbstractDrone
 
 
 class UnderwaterDrone(AbstractDrone):
     """
-            Represents a drone with speed, altitude, battery capacity, and battery level attributes
-        """
+        Represents a drone with speed, altitude, battery capacity, and battery level attributes
+    """
 
-    def __init__(self, current_speed,
-                 current_altitude,
-                 fuel_capacity,
-                 current_fuel_level,
-                 consumption_fuel, ):
+    # pylint: disable= too-many-arguments
+    def __init__(self, current_speed, current_altitude, fuel_capacity,
+                 current_fuel_level, consumption_fuel):
         """
             Initializes a new instance of the Drone class.
         """

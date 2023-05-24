@@ -1,11 +1,13 @@
+"""
+    packages models
+"""
 from abc import ABC, abstractmethod
-
-"""
-    Represents a drone with speed, altitude, battery capacity, and battery level attributes.
-"""
 
 
 class AbstractDrone(ABC):
+    """
+         Create AbstractDrone class.
+    """
     def __init__(self, current_speed, current_altitude):
         """
             Initializes a new instance of the Drone class.
@@ -18,7 +20,6 @@ class AbstractDrone(ABC):
         """
             Calculate max flying distance with current speed
         """
-        pass
 
     def fly_at(self, speed_in_meters_per_second, altitude_in_meters):
         """
