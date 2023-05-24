@@ -13,18 +13,33 @@ class DroneManager:
     """
 
     def __init__(self):
+        """
+             Initializes a new instance of the DroneManager class.
+        """
         self.__drones = []
 
     def add_drone(self, input_drone):
+        """
+             Method add drone to list in DroneManager
+        """
         self.__drones.append(input_drone)
 
     def find_all_with_speed_greater_than(self, speed):
+        """
+             Find all with speed greater than ***
+        """
         return list(filter(lambda needle_drone: needle_drone.current_speed > speed, self.__drones))
 
     def find_all_with_altitude_greater_than(self, altitude):
-        return list(filter(lambda needle_drone: needle_drone.current_altitude > altitude, self.__drones))
+        """
+             Find all with altitude greater than ***
+        """
+        return filter(lambda needle_drone: needle_drone.current_altitude > altitude, self.__drones)
 
     def print_drones(self):
+        """
+             Print list of Drones in DroneManager
+        """
         for index in self.__drones:
             index.calculate_max_flying_distance_at_current_speed()
             print(index)
@@ -49,6 +64,12 @@ if __name__ == '__main__':
 
     print("\nDrones with speed greater than 100:\n")
     list_drones_with_speed_greater_than = manager.find_all_with_speed_greater_than(100)
+
+    for drone in list_drones_with_speed_greater_than:
+        drone.calculate_max_flying_distance_at_current_speed()
+        print(drone)
+
+    print("any array")
 
     for drone in list_drones_with_speed_greater_than:
         drone.calculate_max_flying_distance_at_current_speed()
