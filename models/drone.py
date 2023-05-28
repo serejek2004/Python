@@ -14,6 +14,7 @@ class AbstractDrone(ABC):
         """
         self.current_speed = current_speed
         self.current_altitude = current_altitude
+        self.best_cargo = {}
 
     @abstractmethod
     def calculate_max_flying_distance_at_current_speed(self):
@@ -33,3 +34,13 @@ class AbstractDrone(ABC):
             Returns a string representation of the Drone object.
         """
         return f"current_speed={self.current_speed}, current_altitude={self.current_altitude}, "
+
+    def get_attributes_by_data_type(self, data_type):
+        # pylint: disable= line-too-long
+        """
+        Returns a dictionary with attributes and values of the object that match the specified data type.
+        """
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
+
+    def __iter__(self):
+        return iter(self.best_cargo)
