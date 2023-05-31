@@ -20,6 +20,10 @@ class PetrolDrone(AbstractDrone):
         self.current_fuel_level = current_fuel_level
         self.consumption_fuel = consumption_fuel
         self.current_max_flying_distance = None
+        self.best_cargo = {"Fuel", "Gun"}
+
+    def __iter__(self):
+        return iter(self.best_cargo)
 
     def use_fuel(self, amount):
         """
@@ -38,6 +42,7 @@ class PetrolDrone(AbstractDrone):
             Calculate max flying distance with current speed
         """
         self.current_max_flying_distance = (self.current_fuel_level / self.consumption_fuel) * 100
+        return self.current_max_flying_distance
 
     def __str__(self):
         """
@@ -47,4 +52,5 @@ class PetrolDrone(AbstractDrone):
                f"battery_capacity={self.fuel_capacity}, " \
                f"current_battery_level={self.current_fuel_level}, " \
                f"consumption_battery={self.consumption_fuel}, " \
-               f"max_flying_distance={self.current_max_flying_distance}"
+               f"max_flying_distance={self.current_max_flying_distance}, " \
+               f"best_cargo={self.best_cargo}"

@@ -20,6 +20,10 @@ class DeliveryDrone(AbstractDrone):
         self.current_battery_level = current_battery_level
         self.consumption_battery = consumption_battery
         self.current_max_flying_distance = None
+        self.best_cargo = {"Food", "Drinks"}
+
+    def __iter__(self):
+        return iter(self.best_cargo)
 
     def use_battery(self, amount):
         """
@@ -39,6 +43,7 @@ class DeliveryDrone(AbstractDrone):
         """
         # pylint: disable= line-too-long
         self.current_max_flying_distance = (self.current_battery_level / self.consumption_battery) * 100
+        return self.current_max_flying_distance
 
     def __str__(self):
         """
@@ -48,4 +53,5 @@ class DeliveryDrone(AbstractDrone):
                f"battery_capacity={self.battery_capacity}, " \
                f"current_battery_level={self.current_battery_level}, " \
                f"consumption_battery={self.consumption_battery}, " \
-               f"max_flying_distance={self.current_max_flying_distance}"
+               f"max_flying_distance={self.current_max_flying_distance}, " \
+               f"best_cargo={self.best_cargo}"
