@@ -3,7 +3,6 @@
 """
 from decorators.meansure_time import measure_time
 from decorators.save_results_in_file import save_result_to_file
-from manager.set_manager import SetManager
 from models.delivery_drone import DeliveryDrone
 from models.petrol_drone import PetrolDrone
 from models.electric_drone import ElectricDrone
@@ -102,8 +101,8 @@ class DroneManager:
 if __name__ == '__main__':
     manager = DroneManager()
 
-    drones = [DeliveryDrone(10, 50, 50, 50, 60),
-              DeliveryDrone(50, 100, 600, 800, 100),
+    drones = [DeliveryDrone(10, 50, 50, 0, 0),
+              DeliveryDrone(50, 100, 600, 400, 100),
               PetrolDrone(15, 50, 30, 70, 90),
               PetrolDrone(100, 200, 300, 400, 500),
               ElectricDrone(300, 400, 500, 100, 200),
@@ -115,32 +114,6 @@ if __name__ == '__main__':
         drone.calculate_max_flying_distance_at_current_speed()
         manager.add_drone(drone)
 
-    for each in manager.get_drone_method_value():
-        print(each)
-
-    print("\nNext line print with Index\n")
-
-    enumeration = manager.get_drone_enumeration()
-
-    for index, drone in enumeration:
-        print(f"Index: {index}, {drone.__class__.__name__}: {drone}")
-
-    print("\nConditionals\n")
-
-    print(manager.check_condition(lambda drone: drone.current_max_flying_distance > 100))
-
-    set_manager = SetManager(manager)
-
-    print(len(set_manager))
-    for i in set_manager:
-        print(i)
-
-    # i = iter(set_manager)
-
-    # set_manager.__getitem__(4)
-
-    # set_iter = iter(set_manager)
-    #
-    # print(next(set_iter))
-
-    # 2 & 12
+    drones[1].charge_battery(2000)
+    drones[4].charge_battery(5000)
+    drones[5].use_battery(555)
