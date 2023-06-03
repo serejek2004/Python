@@ -24,7 +24,12 @@ The SetManager class have next methods & fields
 * drone_manager field (object DroneManager)
 * Many magic methods
 
-Two decorator 
+three decorator 
 
 * Measure time decorator - measure time done method
 * Save result to file decorator - save logs to file
+* logging exception to file
+
+one exception
+
+* Out of range fuel capacity
