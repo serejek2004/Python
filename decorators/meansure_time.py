@@ -14,7 +14,7 @@ def measure_time(function):
         result = function(*args, **kwargs)
         end_time = time.time()
         result_time = end_time - start_time
-        print(f"Time done {function.__name__} is - {result_time*1000:.3f} mSecond")
+        print(f"Time done {function.__name__} is - {result_time*1000:.3f} Second")
         return result
 
     return wrapper
